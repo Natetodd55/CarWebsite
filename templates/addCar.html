@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+    {% block content %}
+        <form action="/addCar" method="POST">
+            Make <input type="input" name="make"> <br>
+            Model <input type="input" name="model"> <br>
+            Year <input type="number" name="year"> <br>
+            <input type="submit" value="submit">
+        </form>
+    {% endblock %}

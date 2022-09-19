@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+    {% block content %}
+    {% if users %}
+        <table>
+            <tr>
+                <td class="label">Username</td>
+                <td class="label">Age</td>
+                <td class="label">Name</td>
+                <td class="label">Password</td>
+            </tr>
+        {% for row in users %}
+            <tr>
+                <td> {{row.username}} </td>
+                <td> {{row.age}} </td>
+                <td> {{row.name}} </td>
+                <td> {{row.password}} </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+    {% if cars %}
+    <table>
+        <tr>
+            <td class="label">Make</td>
+            <td class="label">Model</td>
+            <td class="label">Year</td>
+        </tr>
+        {% for row in cars %}
+        <tr>
+            <td> {{row.make}} </td>
+            <td> {{row.model}} </td>
+            <td> {{row.year}} </td>
+            <td>
+                <form action="/update/{{row.id}}">
+                    <input type = submit value="update">
+                </form>
+            </td>
+            <td>
+                <form action="/delete/{{row.id}}" method = 'POST'>
+                    <input type = submit value="delete">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    {% endblock %}
